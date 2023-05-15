@@ -4,10 +4,12 @@ export const Game = styled.div`
     display: flex
     justify-content: space-between;
     margin: 60px auto;
+    padding: 0 40px;
+
+    max-width: 1025px;
 
     img {
         width: 400px;
-        height: 466.67px;
     }
 `;
 
@@ -15,7 +17,8 @@ export const WordContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-itens: end;
+    align-items: end;
+    padding: 35px 0;
 
 
     button {
@@ -25,15 +28,11 @@ export const WordContainer = styled.div`
         border-radius: 8px;
         border: none;
         cursor: pointer;
-
+        
         font-family: 'Roboto';
-        font-style: normal;
         font-weight: 700;
         font-size: 20px;
-        color: #FFFFFF;
-        display: flex;
-        align-items: center;
-        text-align: center;
+        color: #FFFFFF;        
     }
 `;
 
@@ -43,13 +42,12 @@ export const Word = styled.div`
     font-weight: 700;
 
     color: ${({gamestatus}) => {
-        switch ({gamestatus}){
-            case "win":
-                return "green";
-            case "loose":
-                return "red";
-            case "playing":
-                return "black";
+        if (gamestatus === "win") {
+            return "green";
+        } else if (gamestatus === "loose") {
+            return "red";
+        } else if (gamestatus === "playing") {
+            return "black";
         }
     }};
 `;

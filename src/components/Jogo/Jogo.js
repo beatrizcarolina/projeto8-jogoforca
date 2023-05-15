@@ -24,7 +24,7 @@ export default function Jogo({errorsNumber, startGame, gameStatus, word, letters
         <Game>
             <img 
             src = {images[errorsNumber]} 
-            data-test = "game-image"></img>
+            data-test = "game-image"/>
             
             <WordContainer>
                 <button 

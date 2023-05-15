@@ -1,6 +1,6 @@
 import {Keyboard} from "./style"
 
-export default function Letras(enabledKeyboard, disabledKeys, enableKey) {
+export default function Letras({enableKeyboard, disabledkeys, enablekey}) {
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
                   "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -10,8 +10,8 @@ export default function Letras(enabledKeyboard, disabledKeys, enableKey) {
                 <Key
                     key = {position}
                     letter = {letter}
-                    disabled = {!enabledKeyboard || disabledKeys.includes(position)}
-                    onClick = {() => enableKey(position, alfabeto[position])}
+                    disabled={!enableKeyboard || disabledkeys.includes(position)}
+                    onClick = {() => enablekey(position)}
                 />
             ))}
         </Keyboard>

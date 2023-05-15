@@ -42,8 +42,8 @@ export const Word = styled.div`
     font-size: 50px;
     font-weight: 700;
 
-    color: ${({gameStatus}) => {
-        switch ({gameStatus}){
+    color: ${({gamestatus}) => {
+        switch ({gamestatus}){
             case "win":
                 return "green";
             case "loose":

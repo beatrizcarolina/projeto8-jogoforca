@@ -8,7 +8,7 @@ import forca4 from "../../assets/forca4.png";
 import forca5 from "../../assets/forca5.png";
 import forca6 from "../../assets/forca6.png";
 
-export default function Jogo({errorsNumber, onClick, gameStatus, word, letters}) {
+export default function Jogo({errorsNumber, startGame, gameStatus, word, letters}) {
 
     const images = [
         forca0,
@@ -28,17 +28,15 @@ export default function Jogo({errorsNumber, onClick, gameStatus, word, letters})
             
             <WordContainer>
                 <button 
-                onClick = {onClick} 
+                onClick = {startGame} 
                 data-test = "choose-word">
                     Escolher Palavra
                 </button>
                 
-                <Word gameStatus = {gameStatus} data-test = "word">
-                    if(gameStatus === "win" || gameStatus === "loose") {
-                            word
-                        } else {
-                            letters.join("")
-                        };
+                <Word gamestatus={gameStatus} data-test = "word">
+                {gameStatus === "loose" || gameStatus === "win"
+                        ? word
+                        : letters.join("")}
                 </Word>
             </WordContainer>
         </Game>

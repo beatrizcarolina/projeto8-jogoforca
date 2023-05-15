@@ -11,6 +11,8 @@ export default function App() {
     const [gameStatus, setGameStatus] = React.useState("playing");
     const [word, setWord] = React.useState("");
     const [letters, setLetters] = React.useState([]);
+    const [enabledKeybord, setEnabledKeybord] = React.useState(false);
+    const [disabledKeys, setDisabledKeys] = React.useState([]);
 
 
     function startGame() {
@@ -18,6 +20,10 @@ export default function App() {
         seterrosNumber(0);
         setWord("teste");
     };
+
+   function enableKey (position, letter) {
+
+   }
     
     return (
         <>
@@ -29,6 +35,11 @@ export default function App() {
                 word = {word} 
                 letters={letters}
             ></Jogo>
+            <Letras
+                enabledKeyboard={enabledKeybord}
+                disabledKeys={disabledKeys}
+                enableKey={enableKey}
+            ></Letras>
         </>
     );
 }

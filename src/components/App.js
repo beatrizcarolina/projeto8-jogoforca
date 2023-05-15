@@ -8,37 +8,53 @@ import palavras from "../palavras"
 export default function App() {
 
     const [errorsNumber, seterrosNumber] = React.useState(0);
-    const [gameStatus, setGameStatus] = React.useState("playing");
+    const [gameState, setGameState] = React.useState("playing");
     const [word, setWord] = React.useState("");
     const [letters, setLetters] = React.useState([]);
-    const [enabledKeybord, setEnabledKeybord] = React.useState(false);
+    const [enabledKeyboard, setEnabledKeyboard] = React.useState(false);
     const [disabledKeys, setDisabledKeys] = React.useState([]);
+    const [points, setPoints] = React.useState(0);
 
-
+    function selectLetters(letter) {
+        const newLetters = Array(letter.length).fill(" _");
+        setLetters(newLetters);
+        return;
+    }
+    
+    function chooseWord() {
+        const randomWords = Math.floor(Math.random() * palavras.length);
+        const chosenWord = palavras[randomWords];
+        setWord(chosenWord);
+        selectLetters(chosenWord);
+    }
+    
+    function enableKey(position) {
+        setDisabledKeys([...disabledKeys, position]);
+    };
+    
     function startGame() {
-        setGameStatus("playing");
+        setEnabledKeyboard(true);
+        setDisabledKeys([]);
+        setGameState("playing");
         seterrosNumber(0);
-        setWord("teste");
+        setPoints(0);
+        chooseWord();
     };
 
-   function enableKey (position, letter) {
-
-   }
-    
     return (
         <>
             <GlobalStyle/>
             <Jogo
                 errorsNumber = {errorsNumber}
                 startGame = {startGame}
-                gameStatus = {gameStatus}
+                gameStatus = {gameState}
                 word = {word} 
                 letters={letters}
             ></Jogo>
             <Letras
-                enabledKeyboard={enabledKeybord}
-                disabledKeys={disabledKeys}
-                enableKey={enableKey}
+                enableKeyboard={enabledKeyboard}
+                disabledkeys={disabledKeys}
+                enablekey={enableKey}
             ></Letras>
         </>
     );

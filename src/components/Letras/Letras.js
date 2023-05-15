@@ -11,7 +11,7 @@ export default function Letras({enableKeyboard, disabledkeys, enablekey}) {
                     key = {position}
                     letter = {letter}
                     disabled={!enableKeyboard || disabledkeys.includes(position)}
-                    onClick = {() => enablekey(position)}
+                    onClick = {() => enablekey(position,letter)}
                 />
             ))}
         </Keyboard>

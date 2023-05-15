@@ -5,6 +5,7 @@ export const Keyboard = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 70px auto;
     gap: 12px;
 
     button {
